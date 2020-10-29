@@ -14,49 +14,55 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin');
+    return view('backend.admin');
 });
-Route::get('/admin-user-add', function () {
-    return view('admin-user-add');
-});
-
-
-Route::get('/admin-user-all', function () {
-    return view('admin-user-all');
-});
-
-Route::get('/algeria_students_add', function () {
-    return view('algeria_students_add');
-});
-
-Route::get('/algeria_students_all', function () {
-    return view('algeria_students_all');
-});
-
-Route::get('/china_students_add', function () {
-    return view('china_students_add');
-});
-
-Route::get('/china_students_all', function () {
-    return view('china_students_all');
-});
-
-Route::get('/lebanon_students_add', function () {
-    return view('lebanon_students_add');
-});
-
-Route::get('/lebanon_students_all', function () {
-    return view('lebanon_students_all');
+Route::get('/backend/admin-user-add', function () {
+    return view('backend.admin-user-add');
 });
 
 
-Route::get('/student_morocco_add','App\Http\Controllers\MoroccoStudentsController@create')->name('student_morocco_add');
-Route::post('/student_morocco_add','App\Http\Controllers\MoroccoStudentsController@store')->name('student_morocco_add');
-Route::get('/student_morocco_all/{id}','App\Http\Controllers\MoroccoStudentsController@show')->name('student_morocco_all');
+Route::get('/backend/admin-user-all', function () {
+    return view('backend.admin-user-all');
+});
+
+Route::get('/backend/algeria_students_add', function () {
+    return view('backend.algeria_students_add');
+});
+
+Route::get('/backend/algeria_students_all', function () {
+    return view('backend.algeria_students_all');
+});
+
+Route::get('/backend/china_students_add', function () {
+    return view('backend.china_students_add');
+});
+
+Route::get('/backend/china_students_all', function () {
+    return view('backend.china_students_all');
+});
+
+Route::get('/backend/lebanon_students_add', function () {
+    return view('backend.lebanon_students_add');
+});
+
+Route::get('/backend/lebanon_students_all', function () {
+    return view('backend.lebanon_students_all');
+});
 
 
-Route::get('/student_morocco_all/{id}/student_morocco_edit','App\Http\Controllers\MoroccoStudentsController@edit')->name('student_morocco_all');
-Route::put('/student_morocco_all/{id}','App\Http\Controllers\MoroccoStudentsController@update')->name('student_morocco_all');
+Route::get('/backend/student_morocco_add','App\Http\Controllers\MoroccoStudentsController@create')->name('backend.student_morocco_add');
+Route::post('/backend/student_morocco_add','App\Http\Controllers\MoroccoStudentsController@store')->name('backend.student_morocco_add');
+Route::get('/backend/student_morocco_all','App\Http\Controllers\MoroccoStudentsController@show')->name('backend.student_morocco_all');
+
+
+//Route::get('/backend/student_morocco_edit/{id}','App\Http\Controllers\MoroccoStudentsController@edit')->name('backend.student_morocco_edit');
+//Route::put('/backend/student_morocco_edit/{id}','App\Http\Controllers\MoroccoStudentsController@update')->name('backend.student_morocco_edit');
+
+
+Route::get('/backend/{id}/student_morocco_edit','App\Http\Controllers\MoroccoStudentsController@edit')->name('backend.student_morocco_edit');
+Route::put('/backend/{id}','App\Http\Controllers\MoroccoStudentsController@update')->name('backend.update');
+
+Route::delete('/backend/{id}','App\Http\Controllers\MoroccoStudentsController@destroy')->name('backend.destroy');
 
 /*Route::get('/student_morocco_add', function () {
     return view('student_morocco_add');
@@ -67,18 +73,18 @@ Route::get('/student_morocco_all', function () {
 });
 */
 
-Route::get('/tunisia_students_add', function () {
-    return view('tunisia_students_add');
+Route::get('/backend/tunisia_students_add', function () {
+    return view('backend.tunisia_students_add');
 });
 
-Route::get('/tunisia_students_all', function () {
-    return view('tunisia_students_all');
+Route::get('/backend/tunisia_students_all', function () {
+    return view('backend.tunisia_students_all');
 });
 
-Route::get('/admin-import-data', function () {
-    return view('admin-import-data');
+Route::get('/backend/admin-import-data', function () {
+    return view('backend.admin-import-data');
 });
 
-Route::get('/admin-export-data', function () {
-    return view('admin-export-data');
+Route::get('/backend/admin-export-data', function () {
+    return view('backend.admin-export-data');
 });

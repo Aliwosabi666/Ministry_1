@@ -25,7 +25,7 @@ class MoroccoStudentsController extends Controller
     public function create()
     {
         //
-        return view('student_morocco_add');
+        return view('/backend/student_morocco_add');
     }
 
     /**
@@ -73,7 +73,7 @@ class MoroccoStudentsController extends Controller
 
         $mrc_std->save();
 
-        return redirect('/student_morocco_add')->with('status', 'Post was created !');
+        return redirect('/backend/student_morocco_all')->with('status', 'Post was created !');
     }
 
     /**
@@ -82,10 +82,10 @@ class MoroccoStudentsController extends Controller
      * @param  \App\Models\morocco_students  $morocco_students
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show() {
 
-        $mrc_std = morocco_students::find($id);
-        return view('/student_morocco_all', compact('mrc_std'));
+        $mrc_std = morocco_students::all();
+        return view('/backend/student_morocco_all', compact('mrc_std'));
     }
 
     /**
@@ -94,14 +94,12 @@ class MoroccoStudentsController extends Controller
      * @param  \App\Models\morocco_students  $morocco_students
      * @return \Illuminate\Http\Response
      */
-    public function edit(morocco_students $id)
+    public function edit($id)
     {
         //
         $mrc_std = morocco_students::find($id);
-      /*  if (auth()->user()->id !== $post->user_id) {
-            return redirect('/posts')->with('error', ' You are not authorized');
-        }*/
-        return view('/student_morocco_edit', compact('mrc_std'));
+        return view('/backend/student_morocco_edit', compact('mrc_std'));
+
     }
 
     /**
@@ -111,7 +109,7 @@ class MoroccoStudentsController extends Controller
      * @param  \App\Models\morocco_students  $morocco_students
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, morocco_students $id)
+    public function update(Request $request, $id) 
     {
         //
         $request->validate([
@@ -134,7 +132,7 @@ class MoroccoStudentsController extends Controller
 
         $mrc_std->save();
 
-        return redirect('/student_morocco_all')->with('status', 'Post was created !');
+        return redirect('/backend/student_morocco_all')->with('status', 'Post was updated !');
     }
 
     /**
@@ -143,8 +141,12 @@ class MoroccoStudentsController extends Controller
      * @param  \App\Models\morocco_students  $morocco_students
      * @return \Illuminate\Http\Response
      */
-    public function destroy(morocco_students $morocco_students)
+    public function destroy($id) 
     {
         //
+        $mrc_std = morocco_students::find($id);
+        $mrc_std->delete();
+        return redirect('/backend/student_morocco_all')->with('status', 'Post was deleted !');
+
     }
 }

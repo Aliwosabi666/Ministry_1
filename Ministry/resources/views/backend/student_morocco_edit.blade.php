@@ -24,31 +24,32 @@
                                     <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password and more</p>
                                 </div>
                                 <div class="tab-inn">
-                                    <form action="/student_morocco_add" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ '/backend/' . $mrc_std->id}}" method="POST">                                       
                                         @csrf
+                                        @method('PUT')
                                         <div class="row">
                                             <div class="input-field col s6">
-                                                <input type="text" name="name" id="name" value="" class="validate" required>
+                                                <input type="text" name="name" id="name" value="{{$mrc_std->name}}" class="validate" required>
                                                 <label class=""> الاسم</label>
                                             </div>
                                             <div class="input-field col s6">
-                                                <input type="text" name="year_of_dispatch" id="year_of_dispatch" value="" class="validate" required>
+                                                <input type="text" name="year_of_dispatch" id="year_of_dispatch" value="{{$mrc_std->year_of_dispatch}}" class="validate" required>
                                                 <label class="">عام الإيفاد</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s6">
-                                                <input type="text" name="Degree" id="Degree" value="" class="validate" required>
+                                                <input type="text" name="Degree" id="Degree" value="{{$mrc_std->Degree}}" class="validate" required>
                                                 <label class="">الدرجة العلمية</label>
                                             </div>
                                             <div class="input-field col s6">
-                                                <input type="text" name="specialization" id="specialization" class="validate" value="" required>
+                                                <input type="text" name="specialization" id="specialization" class="validate" value="{{$mrc_std->specialization}}" required>
                                                 <label class="">التخصص</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input type="text" name="quarterly_grant" id="quarterly_grant" value="" class="validate">
+                                                <input type="text" name="quarterly_grant" id="quarterly_grant" value="{{$mrc_std->quarterly_grant}}" class="validate">
                                                 <label class="">المنحة الربعية</label>
                                             </div>
 
@@ -56,20 +57,9 @@
      
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input type="text" name="observation" id="observation" value="" class="validate">
+                                                <input type="text" name="observation" id="observation" value="{{$mrc_std->observation}}" class="validate">
                                                 <label>الملاحظات</label>
                                             </div>
-                                        </div>
-                                        <div class="row">
-											<div class="file-field input-field col s12">
-												<div class="btn admin-upload-btn">
-													<span>File</span>
-													<input type="file" name="coverImage" id="coverImage">
-												</div>
-												<div class="file-path-wrapper">
-													<input class="file-path validate" name="coverImage" id="coverImage" type="text" placeholder="Profile image">
-												</div>
-											</div>
                                         </div>                                      
                                           <div class="row">
                                             <div class="input-field col s12">
