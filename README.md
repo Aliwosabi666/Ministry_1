@@ -1,2 +1,2 @@
-# Ministry_1
+# Ministry
 TEST
